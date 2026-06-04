@@ -42,17 +42,10 @@ body{font-family:"Times New Roman","Microsoft JhengHei","微軟正黑體","PingF
 .bk-close{font-size:18px;color:#aaa;background:none;border:none;cursor:pointer;padding:0 4px;margin-left:8px}
 </style>
 </head>
-// 強制所有按鈕開新分頁，避免 reurl.cc 造成雙層返回
-document.querySelectorAll('a.btn').forEach(function(link){
-  link.addEventListener('click', function(e){
-    e.preventDefault();
-    window.open(this.href, '_blank', 'noopener,noreferrer');
-  });
-});
 <body>
 
 <!-- 回來提示 -->
-<div id="toast">✅ 歡迎回來！可繼續填寫下一項目</div>
+<div id="toast">✅ 歡迎回來！可繼續填寫</div>
 
 <!-- 底部書籤橫幅 -->
 <div id="bookmark-bar">
@@ -125,6 +118,13 @@ document.addEventListener('visibilitychange',function(){
     t.classList.add('show');
     setTimeout(function(){ t.classList.remove('show'); },3500);
   }
+});
+// ← 加在這裡 ↓
+document.querySelectorAll('a.btn').forEach(function(link){
+  link.addEventListener('click',function(e){
+    e.preventDefault();
+    window.open(this.href,'_blank','noopener,noreferrer');
+  });
 });
 </script>
 </body>
